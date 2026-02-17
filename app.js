@@ -1,4 +1,3 @@
-
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
@@ -6,7 +5,6 @@ const connectDB = require("./config/db");
 const messageRoutes = require("./routes/messageRoutes");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 // Connect to MongoDB
 connectDB();
@@ -20,7 +18,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/messages", messageRoutes);
 
 // Test route
-app.get("/", (req, res) => res.send("Welcome"));
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
 
-// Start server
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// ✅ IMPORTANT: Export app for Vercel
+module.exports = app;
