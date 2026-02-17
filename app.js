@@ -19,7 +19,7 @@ app.use("/api/messages", messageRoutes);
 
 // Test route
 app.get("/", (req, res) => {
-  res.send("Backend is running 🚀");
+  res.send("welcome to my api");
 });
 
 // ✅ IMPORTANT: Export app for Vercel
